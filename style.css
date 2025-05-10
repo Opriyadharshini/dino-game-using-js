@@ -1,0 +1,44 @@
+/* Ensure the body has no margin and is positioned correctly */
+body {
+    margin: 0;
+    overflow: hidden; /* Hide any overflow to keep the game area clean */
+}
+
+/* Style the character */
+#character {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    bottom: 0; /* Position character at the bottom of the container */
+    left: 50px; /* Position character horizontally */
+}
+
+/* Style the block */
+#block {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    bottom: 0; /* Position block at the bottom of the container */
+    left: 100px; /* Start position of the block */
+    animation: blockMove 2s infinite linear; /* Move the block continuously */
+}
+
+/* Define the animation for the block to move it horizontally */
+@keyframes blockMove {
+    0% { left: 100%; } /* Start off-screen to the right */
+    100% { left: -50px; } /* End off-screen to the left */
+}
+
+/* Define the jump animation for the character */
+@keyframes jump {
+    0% { top: 0; } /* Starting position */
+    50% { top: -50px; } /* Mid-air position */
+    100% { top: 0; } /* Back to the starting position */
+}
+
+/* Apply the jump animation when the character has the class 'animate' */
+.animate {
+    animation: jump 0.5s;
+}
